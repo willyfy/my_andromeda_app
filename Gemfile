@@ -16,8 +16,6 @@ gem "turbo-rails"
 gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-# Web Server
-gem "puma"
 # Plugin to intergrate with
 gem "aws-sdk-s3", require: false
 
