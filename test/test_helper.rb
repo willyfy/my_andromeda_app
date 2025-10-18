@@ -12,12 +12,4 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
   end
-   # test/test_helper.rb
-
-   class ActiveSupport::TestCase
-     # ... autres configurations
-
-     # Assurez-vous d'inclure les helpers de routes pour tous les tests
-     include Rails.application.routes.url_helpers
-   end
 end
