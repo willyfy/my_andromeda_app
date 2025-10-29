@@ -17,7 +17,7 @@ production:
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fecth("RAILS_MAX_THREADS") {5} %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") {5} %>
   database: <%= ENV['postgres'] %>  
   username: <%= ENV['ebroot'] %>
   password: <%= ENV['postgres2025'] %>
