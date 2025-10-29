@@ -99,3 +99,14 @@ cable:
     password: <%= ENV['RDS_PASSWORD'] %>
     host: <%= ENV['RDS_HOSTNAME'] %> 
     port: <%= ENV['RDS_PORT'] %>
+queue:
+  production:
+    # Réutilise les mêmes variables d'environnement
+    adapter: postgresql
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    database: <%= ENV['RDS_DB_NAME'] %>
+    username: <%= ENV['RDS_USERNAME'] %>
+    password: <%= ENV['RDS_PASSWORD'] %>
+    host: <%= ENV['RDS_HOSTNAME'] %> 
+    port: <%= ENV['RDS_PORT'] %>
