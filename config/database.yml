@@ -12,15 +12,17 @@
 # Configure Using Gemfile
 # gem "pg"
 #
-default: &default
+production: 
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
-  username: postgres
-  password: sagnol
-  host: localhost
+  pool: <%= ENV.fecth("RAILS_MAX_THREADS") {5} %>
+  database: <%= ENV['postgres'] %>  
+  username: <%= ENV['ebroot'] %>
+  password: <%= ENV['postgres2025'] %>
+  host: <%= ENV['awseb-e-vikusewfjw-stack-awsebrdsdatabase-6dtt2pdo8r1x.cp0iq24se6bm.eu-north-1.rds.amazonaws.com'] %>
+  port: <% ENV['5432'] %>
 
 
 development:
@@ -81,7 +83,3 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-production:
-    <<: *default
-    database: my_andromeda_app_production
-    
