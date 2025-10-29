@@ -18,11 +18,11 @@ production:
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") {5} %>
-  database: <%= ENV['postgres'] %>  
-  username: <%= ENV['ebroot'] %>
-  password: <%= ENV['postgres2025'] %>
-  host: <%= ENV['awseb-e-vikusewfjw-stack-awsebrdsdatabase-6dtt2pdo8r1x.cp0iq24se6bm.eu-north-1.rds.amazonaws.com'] %>
-  port: <% ENV['5432'] %>
+  database: <%= ENV['RDS_DB_NAME'] %>  
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <% ENV['RDS_PORT'] %>
 
 
 development:
@@ -32,7 +32,7 @@ development:
   pool: 5
   username: user
   password: password
-  host: 127.0.0.1
+  host: 127.0.0.i1
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
