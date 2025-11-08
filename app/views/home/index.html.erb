@@ -1,2 +1,46 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container">
+  <h1>🌌 Andromeda Gallery</h1>
+  <p class="subtitle">Contribute to the exploration of the Andromeda galaxy</p>
+  
+  <!-- Upload form -->
+  <div class="upload-section">
+    <h2>Add a photo</h2>
+    <%= form_with model: @photo, local: true do |form| %>
+      <div class="field">
+        <%= form.label :title, "Titre" %>
+        <%= form.text_field :title, required: true %>
+      </div>
+      
+      <div class="field">
+        <%= form.label :description, "Description" %>
+        <%= form.text_area :description %>
+      </div>
+      
+      <div class="field">
+        <%= form.label :image, "Photo of the galaxy" %>
+        <%= form.file_field :image, accept: 'image/png,image/jpg,image/jpeg', required: true %>
+      </div>
+      
+      <%= form.submit "Share in the gallery" %>
+    <% end %>
+  </div>
+  
+  <!-- Galerie -->
+  <div class="gallery">
+    <h2>Contributors gallery</h2>
+    <div class="photos-grid">
+      <% @photos.each do |photo| %>
+        <div class="photo-card">
+          <% if photo.image.attached? %>
+            <%= image_tag photo.image.variant(resize: "300x300") %>
+          <% end %>
+          <div class="photo-info">
+            <h3><%= photo.title %></h3>
+            <p><%= photo.description %></p>
+            <small>Added on <%= photo.created_at.strftime("%d/%m/%Y") %></small>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

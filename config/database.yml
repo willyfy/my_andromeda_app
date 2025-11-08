@@ -5,7 +5,6 @@ default: &default
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
   host: <%= ENV['DB_HOST'] %>
-  port: <%= ENV['DB_PORT'] %>
 
 development:
   <<: *default
@@ -14,7 +13,7 @@ development:
 production:
   <<: *default
   database: my_andromeda_app_production
-
+ 
 cable:
   <<: *default
   database: my_andromeda_app_cache
